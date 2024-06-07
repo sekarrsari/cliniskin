@@ -1,5 +1,5 @@
 <!-- Footer start -->
-<footer class="bg-[#162032]">
+<footer class="bg-[#162032] font-['Poppins']">
     <div class="w-full mx-auto py-10 max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
         <div class="flex flex-col items-start">
             <span class="text-xl text-white font-extrabold sm:text-center">Cliniskin

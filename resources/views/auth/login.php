@@ -3,7 +3,6 @@
 <div class="font-['Poppins'] bg-gradient-to-r from-[#355186] to-[#687CA3] flex items-center justify-center min-h-screen">
     <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
         <img src="<?= urlpath('asset/img/login.png') ?>" alt="" class="mt-10 max-w-sm mx-auto md:mx-0 md:max-w-lg lg:max-w-2xl md:ml-2 md:mr-2">
-
         <form class="max-w-sm mx-auto bg-[#F9F9F9] rounded-xl p-10 md:my-10">
             <div class="flex flex-col mb-6">
                 <span class="text-[#2D4574] font-extrabold text-3xl">Selamat datang!</span>

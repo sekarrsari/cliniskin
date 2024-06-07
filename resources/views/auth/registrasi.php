@@ -1,33 +1,53 @@
-<?php $title = 'CLINISKIN | Registrasi'; ?>
+<?php $title = 'CLINISKIN | Registasi Dokter'; ?>
 
-<div class="text-white font-['Poppins'] bg-gradient-to-r from-[#355186] to-[#687CA3] min-h-screen">
-    <h2 class="text-4xl pt-14 mb-16 md:mb-14 text-center font-bold">Pilih role anda</h2>
-    <div class="flex items-center justify-center text-center">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
-            <div class="max-w-xs bg-[#A0ACC3] rounded-lg shadow-lg">
-                <a href="<?= urlpath('registrasi-dokter') ?>">
-                    <img class="rounded-t-lg h-auto" src="<?= urlpath('asset/img/dokter.png') ?>" alt="" />
-                    <div class="p-5">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Dokter</h5>
-                    </div>
-                </a>
+<div class="font-['Poppins'] bg-gradient-to-r from-[#355186] to-[#687CA3] flex items-center justify-center min-h-screen">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+        <img src="<?= urlpath('asset/img/registrasi.png') ?>" alt="" class="mt-10 max-w-xs md:w-auto mx-auto md:mx-0 lg:ml-44 md:mr-2">
+
+        <form class="max-w-sm lg:max-w-2xl lg:w-2/5 mx-auto bg-[#F9F9F9] rounded-xl p-10 md:my-10">
+            <div class="flex flex-col mb-6">
+                <span class="text-[#2D4574] font-extrabold text-3xl">Selamat datang!</span>
+                <span class="text-[#355186] font-medium text-sm">Silahkan lengkapi akun anda untuk melakukan Registrasi</span>
             </div>
-            <div class="max-w-xs bg-[#A0ACC3] rounded-lg shadow-lg p-4">
-                <a href="<?= urlpath('registrasi-staff'); ?>">
-                    <img class="rounded-t-lg h-auto" src="<?= urlpath('asset/img/staff.png') ?>" alt="" />
-                    <div class="p-5">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Staff Klinik</h5>
-                    </div>
-                </a>
+            <div class="mb-5">
+                <label for="nama" class="block mb-2 text-base font-bold text-[#355186]">Nama Lengkap</label>
+                <input type="text" id="nama"
+                    class="bg-[#E9E9E9] border-none text-gray-900 text-sm rounded-lg focus:ring-[#355186] block w-full p-2.5" placeholder="Masukkan nama lengkap anda"
+                    required />
             </div>
-            <div class="max-w-xs bg-[#A0ACC3] rounded-lg shadow-lg p-4">
-                <a href="<?= urlpath('registrasi-cust'); ?>">
-                    <img class="rounded-t-lg h-auto" src="<?= urlpath('asset/img/cust.png') ?>" alt="" />
-                    <div class="p-5">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Customer</h5>
-                    </div>
-                </a>
+            <div class="mb-5">
+                <label for="no-telepon" class="block mb-2 text-base font-bold text-[#355186]">No. Telepon</label>
+                <input type="number" id="no-telepon"
+                    class="bg-[#E9E9E9] border-none text-gray-900 text-sm rounded-lg focus:ring-[#355186] block w-full p-2.5" placeholder="Masukkan nomor telepon anda"
+                    required />
             </div>
-        </div>
+            <div class="mb-5">
+                <label for="email" class="block mb-2 text-base font-bold text-[#355186]">Email</label>
+                <input type="email" id="email"
+                    class="bg-[#E9E9E9] border-none text-gray-900 text-sm rounded-lg focus:ring-[#355186] block w-full p-2.5"
+                    placeholder="nama@gmail.com" required />
+            </div>
+            <div class="mb-5">
+                <label for="alamat" class="block mb-2 text-base font-bold text-[#355186]">Alamat</label>
+                <input type="text" id="alamat"
+                    class="bg-[#E9E9E9] border-none text-gray-900 text-sm rounded-lg focus:ring-[#355186] block w-full p-2.5" placeholder="Masukkan alamat rumah anda"
+                    required />
+            </div>
+            <div class="mb-5">
+                <label for="password" class="block mb-2 text-base font-bold text-[#355186]">Password</label>
+                <input type="password" id="password"
+                    class="bg-[#E9E9E9] border-none text-gray-900 text-sm rounded-lg focus:ring-[#355186] block w-full p-2.5" placeholder="Buat password untuk akun anda"
+                    required />
+            </div>
+            <button type="submit"
+                class="text-white bg-[#355186] hover:bg-[#2D4574] focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center">Registrasi
+            </button>
+            <div class="text-sm text-[#355186] font-medium mt-4 flex justify-center">
+                <span>Sudah punya akun? 
+                    <a href="<?= urlpath('login') ?>" class="underline">Login sekarang
+                    </a>
+                </span>
+            </div>
+        </form>
     </div>
 </div>

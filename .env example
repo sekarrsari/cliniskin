@@ -1,0 +1,14 @@
+# DATABASE CONNECTION
+DB_HOST=
+DB_USER=
+DB_PASS=
+DB_NAME=cliniskin
+
+# # ADMIN CREDENTIALS
+# NAME=
+# EMAIL=
+# PASSWORD=
+
+# BASEURL
+BASEURL=https://localhost/cliniskin/
+BASEDIR=cliniskin/

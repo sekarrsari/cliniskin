@@ -15,6 +15,7 @@ class AuthController {
         $model_user = new User();
         $result = $model_user->find($_POST['email'],'email');
         if($result && $result['password'] == $_POST['password']){
+            $_SESSION['id'] = $result['id'];
             redirect(self::$baseurl . 'beranda-' . $result['role']);
         }
         redirectWith(self::$baseurl . 'login',json_encode(['message' => 'Username atau password salah']));
@@ -38,5 +39,8 @@ class AuthController {
         }
         redirectWith(self::$baseurl . 'registrasi',json_encode(['message' => 'Registrasi gagal']));
     }
-
+    static function logout() {
+        session_destroy();
+        redirect(self::$baseurl);
+    }
 }

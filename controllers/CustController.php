@@ -16,7 +16,9 @@ class CustController {
 
     static function profile_cust()
     {
-        return view('customer/cust_layout', ['url' => 'profile/profile_cust']);
+        $model_user = new User();
+        $user = $model_user->find($_SESSION['id']);
+        return view('customer/cust_layout', ['url' => 'profile/profile_cust', 'user' => $user]);
     }
 
     static function list_treatment()

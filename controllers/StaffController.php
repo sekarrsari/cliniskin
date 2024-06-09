@@ -16,7 +16,9 @@ class StaffController {
 
     static function profile_staff()
     {
-        return view('staff/staff_layout', ['url' => 'profile/profile_staff']);
+        $model_user = new User();
+        $user = $model_user->find($_SESSION['id']);
+        return view('staff/staff_layout', ['url' => 'profile/profile_staff', 'user' => $user]);
     }
 
     static function list_treatment()

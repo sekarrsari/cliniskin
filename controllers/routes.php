@@ -18,8 +18,10 @@ Router::url('beranda-staff', 'get', 'BerandaController::beranda_staff');
 
 // Appointment
 Router::url('beranda-cust/appointment', 'get', 'CustController::appointment_cust');
+Router::url('create-appointment', 'post', 'CustController::doCreateAppointment');
 Router::url('beranda-dokter/appointment', 'get', 'DokterController::appointment_dokter');
 Router::url('beranda-staff/appointment', 'get', 'StaffController::appointment_staff');
+
 // Create Appointment
 Router::url('beranda-cust/appointment/create', 'get', 'CustController::create_appointment');
 // Detail Appointment

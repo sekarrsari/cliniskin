@@ -1,8 +1,8 @@
 <?php
-class User
+class JenisTreatment
 { 
     private $db;
-    private $table = 'user';
+    private $table = 'jenis_treatment';
     public function __construct() {
         $this->db = new Database();
     }
@@ -21,10 +21,6 @@ class User
     public function find($value,$column = 'id')
     {
         return $this->db->readOne($this->table,[$column,'=',$value]);
-    }
-    public function findAll($value,$column = 'id')
-    {
-        return $this->db->readMany($this->table,[$column,'=',$value]);
     }
     public function all()
     {

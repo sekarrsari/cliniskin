@@ -4,6 +4,8 @@ include_once 'function/main.php';
 include_once 'app/config/static.php';
 
 class DokterController {
+    private static $baseurl = '/cliniskin/';
+
     static function appointment_dokter()
     {
         return view('dokter/dokter_layout', ['url' => 'appointment/appointment_dokter']);

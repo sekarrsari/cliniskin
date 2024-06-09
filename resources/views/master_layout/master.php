@@ -27,7 +27,12 @@
 </head>
 
 <body>
-
+    <?php if(isset($_SESSION['alert'])): ?>
+        <script>
+            let alerts = <?=$_SESSION['alert']?>;
+            alert(alerts['message']);
+        </script>
+    <?php unset($_SESSION['alert']); endif; ?>
     <?= $body ?? ''; ?>
 
     <!-- script flowbite -->

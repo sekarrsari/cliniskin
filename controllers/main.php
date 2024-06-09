@@ -6,4 +6,4 @@ include_once 'controllers/CustController.php';
 include_once 'controllers/DokterController.php';
 include_once 'controllers/StaffController.php';
 
-session_start();
+// session_start();

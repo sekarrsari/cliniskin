@@ -5,6 +5,7 @@ Router::url('', 'get', 'LandingController::index');
 
 // auth
 Router::url('login', 'get', 'AuthController::login');
+Router::url('login', 'post', 'AuthController::doLogin');
 
 // Registrasi
 Router::url('registrasi', 'get', 'AuthController::registrasi');
@@ -38,3 +39,6 @@ Router::url('beranda-staff/list-treatment', 'get', 'StaffController::list_treatm
 Router::url('beranda-cust/list-dokter', 'get', 'CustController::list_dokter');
 Router::url('beranda-dokter/list-dokter', 'get', 'DokterController::list_dokter');
 Router::url('beranda-staff/list-dokter', 'get', 'StaffController::list_dokter');
+
+//Utils
+Router::url('fresh', 'get', 'LandingController::fresh');

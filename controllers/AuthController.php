@@ -23,5 +23,20 @@ class AuthController {
     {
         return view('auth/auth_layout', ['url' => 'registrasi']);
     }
+    static function doRegistrasi()
+    {
+        $model_user = new User();
+        $result = $model_user->create([
+            'nama' => $_POST['nama'],
+            'no_telp' => $_POST['no_telp'],
+            'email' => $_POST['email'],
+            'alamat' => $_POST['alamat'],
+            'password' => $_POST['password'],
+        ]);
+        if($result) {
+            redirect(self::$baseurl . 'login');
+        }
+        redirectWith(self::$baseurl . 'registrasi',json_encode(['message' => 'Registrasi gagal']));
+    }
 
 }

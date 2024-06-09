@@ -9,6 +9,7 @@ Router::url('login', 'post', 'AuthController::doLogin');
 
 // Registrasi
 Router::url('registrasi', 'get', 'AuthController::registrasi');
+Router::url('registrasi', 'post', 'AuthController::doRegistrasi');
 
 // Beranda
 Router::url('beranda-dokter', 'get', 'BerandaController::beranda_dokter');

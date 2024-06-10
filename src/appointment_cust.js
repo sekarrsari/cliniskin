@@ -6,6 +6,14 @@ function fetchSearch(letters) {
       .then(res => viewSearch(res))
       .catch(e => console.error('Error'+e));
 }
+function fetchSearchDate(letters) {
+    fetch('/cliniskin/search-date', {
+        method: 'POST',
+        body: new URLSearchParams('letters='+letters)
+    }).then(res => res.json())
+      .then(res => viewSearch(res))
+      .catch(e => console.error('Error'+e));
+}
 
 function viewSearch(data) {
     const tbody = document.getElementById('tbody-appointment');
@@ -41,4 +49,14 @@ function viewSearch(data) {
 function doSearch(input) {
     let value = input.value;
     fetchSearch(value);
+    }
+function doSearchDate(element) {
+    const input = document.querySelector('#date-search');
+    fetchSearchDate(input.value);
 }
+
+document.querySelectorAll('.datepicker-cell').forEach(cell => {
+    cell.addEventListener('focus',function(e) {
+        console.log(e)
+    });
+});

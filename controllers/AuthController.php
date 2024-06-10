@@ -8,17 +8,17 @@ class AuthController {
     static function login()
     {
         if(isset($_COOKIE['remember-cust'])) {
-            $_SESSION['id'] = $_COOKIE['rememberme'];
+            $_SESSION['id'] = $_COOKIE['remember-cust'];
             redirect('beranda-cust');
             die;
         }
         if(isset($_COOKIE['remember-dokter'])) {
-            $_SESSION['id'] = $_COOKIE['rememberme'];
+            $_SESSION['id'] = $_COOKIE['remember-dokter'];
             redirect('beranda-dokter');
             die;
         }
         if(isset($_COOKIE['remember-staff'])) {
-            $_SESSION['id'] = $_COOKIE['rememberme'];
+            $_SESSION['id'] = $_COOKIE['remember-staff'];
             redirect('beranda-staff');
             die;
         }
@@ -58,6 +58,9 @@ class AuthController {
         redirectWith(self::$baseurl . 'registrasi',json_encode(['message' => 'Registrasi gagal']));
     }
     static function logout() {
+        if(isset($_COOKIE['remember-cust'])) unset($_COOKIE['remember-cust']);
+        if(isset($_COOKIE['remember-dokter'])) unset($_COOKIE['remember-dokter']);
+        if(isset($_COOKIE['remember-staff'])) unset($_COOKIE['remember-staff']);
         session_destroy();
         redirect(self::$baseurl);
     }

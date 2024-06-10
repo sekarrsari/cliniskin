@@ -58,9 +58,9 @@ class AuthController {
         redirectWith(self::$baseurl . 'registrasi',json_encode(['message' => 'Registrasi gagal']));
     }
     static function logout() {
-        if(isset($_COOKIE['remember-cust'])) unset($_COOKIE['remember-cust']);
-        if(isset($_COOKIE['remember-dokter'])) unset($_COOKIE['remember-dokter']);
-        if(isset($_COOKIE['remember-staff'])) unset($_COOKIE['remember-staff']);
+        if(isset($_COOKIE['remember-cust'])) setcookie("remember-cust", "", time() - 3600);
+        if(isset($_COOKIE['remember-dokter'])) setcookie("remember-dokter", "", time() - 3600);
+        if(isset($_COOKIE['remember-staff'])) setcookie("remember-staff", "", time() - 3600);
         session_destroy();
         redirect(self::$baseurl);
     }

@@ -192,6 +192,8 @@ class Seeder
     }
     public function clear()
     {
+        $this->db->executeNonQuery('DELETE FROM appointment; ALTER TABLE user AUTO_INCREMENT = 1');
+        $this->db->executeNonQuery('DELETE FROM jenis_treatment; ALTER TABLE user AUTO_INCREMENT = 1');
         $this->db->executeNonQuery('DELETE FROM user; ALTER TABLE user AUTO_INCREMENT = 1');
     }
     public function new()
@@ -225,6 +227,28 @@ class Seeder
             'role' => 'dokter',
         ]);
         
+        //JENIS TREATMENT
+        $this->db->create('jenis_treatment',[
+            'id' => 1,
+            'jenis' => 'Radiant Glow',
+            'manfaat' => 'Kulit wajah terlihat lebih cerah, segar, dan bercahaya, tekstur kulit menjadi lebih halus, pori-pori terserap, dan tanda-tanda penuaan dapat berkurang.',
+            'cocok' => 'Keriput halus, pencegahan penuaaan dini.',
+            'harga' => 590000
+        ]);
+        $this->db->create('jenis_treatment',[
+            'id' => 2,
+            'jenis' => 'Anti-Aging',
+            'manfaat' => 'Kulit wajah terlihat lebih kencang, elastis, dan bercahaya, garis halus dan kerutan dapat berkurang, serta kulit wajah terlihat lebih muda dan segar.',
+            'cocok' => 'Keriput halus, pencegahan penuaaan dini.',
+            'harga' => 700000
+        ]);
+        $this->db->create('jenis_treatment',[
+            'id' => 3,
+            'jenis' => 'Acne Care',
+            'manfaat' => 'Kulit wajah menjadi lebih bersih, jerawat dan peradangan kulit dapat berkurang, dan kulit wajah menjadi lebih sehat dan terawat.',
+            'cocok' => 'Kulit berjerawat, jerawat meradang, bekas jerawat.',
+            'harga' => 800000
+        ]);
     }
     public function fresh()
     {

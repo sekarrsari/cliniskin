@@ -36,6 +36,7 @@ Router::url('beranda-staff/profile', 'get', 'StaffController::profile_staff');
 // Servies
 // List Treatment
 Router::url('beranda-cust/list-treatment', 'get', 'CustController::list_treatment');
+Router::url('beranda-cust/search-treatment', 'get', 'CustController::search_treatment');
 Router::url('beranda-dokter/list-treatment', 'get', 'DokterController::list_treatment');
 Router::url('beranda-staff/list-treatment', 'get', 'StaffController::list_treatment');
 // List Dokter

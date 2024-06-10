@@ -63,7 +63,17 @@ class CustController {
 
     static function list_treatment()
     {
-        return view('customer/cust_layout', ['url' => 'services/list_treatment']);
+        $model_treatment = new JenisTreatment();
+        $treatments = $model_treatment->all();
+        return view('customer/cust_layout', ['url' => 'services/list_treatment', 'treatments' => $treatments]);
+    }
+    static function search_treatment()
+    {
+        $letters = $_GET['letters'];
+        $db = new Database();
+        $sql = "SELECT * FROM jenis_treatment WHERE LOWER(jenis) LIKE LOWER('%$letters%') ";
+        $treatments = $db->executeNoBind($sql,true);
+        return view('customer/cust_layout', ['url' => 'services/list_treatment', 'treatments' => $treatments]);
     }
 
     static function list_dokter()

@@ -7,10 +7,10 @@
             <div class="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-between pb-4">
 
                 <!-- Search Bar Start -->
-                <form class="max-w-md mx-auto w-full">
+                <form action="/cliniskin/beranda-cust/search-treatment" class="max-w-md mx-auto w-full">
                     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
                     <div class="relative">
-                        <input type="search" id="default-search"
+                        <input type="search" id="default-search"name="letters"
                             class="block w-full p-4 pl-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Cari Jenis Treatment..." required />
                         <button type="submit"
@@ -20,38 +20,18 @@
                 <!-- Search Bar End -->
 
                 <!-- List Treatment Start -->
-                <div class="max-w-screen-lg mx-auto bg-white border border-gray-200 rounded-lg shadow-md p-6">
-                    <div class="flex justify-between items-center">
-                        <span class="bg-[#355186] text-white text-sm font-medium mr-2 px-10 py-1.5 rounded">Treatment Radiant Glow</span>
-                        <span class="bg-yellow-400 text-black text-sm font-medium mr-2 px-3 py-1.5 rounded">Rp. 590.000,00</span>
+                <?php foreach ($treatments as $treatment): ?>
+                    <div class="max-w-screen-lg mx-auto bg-white border border-gray-200 rounded-lg shadow-md p-6">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-[#355186] text-white text-sm font-medium mr-2 px-10 py-1.5 rounded"><?= $treatment['jenis'];?></span>
+                            <span class="bg-yellow-400 text-black text-sm font-medium mr-2 px-3 py-1.5 rounded">Rp <?= number_format($treatment['harga'],0,',','.');?></span>
+                        </div>
+                        <div class="mt-4">
+                            <p class="font-semibold">Manfaat: <span class="font-normal"><?= $treatment['manfaat'];?></span></p>
+                            <p class="font-semibold mt-2">Cocok Untuk: <span class="font-normal"><?= $treatment['cocok'];?></span></p>
+                        </div>
                     </div>
-                    <div class="mt-4">
-                        <p class="font-semibold">Manfaat: <span class="font-normal">Kulit wajah terlihat lebih cerah, segar, dan bercahaya, tekstur kulit menjadi lebih halus, pori-pori terserap, dan tanda-tanda penuaan dapat berkurang.</span></p>
-                        <p class="font-semibold mt-2">Cocok Untuk: <span class="font-normal">Kulit kusam, terlihat flek hitam, tekstur kulit tidak merata, pori-pori besar.</span></p>
-                    </div>
-                </div>
-
-                <div class="max-w-screen-lg mx-auto bg-white border border-gray-200 rounded-lg shadow-md p-6">
-                    <div class="flex justify-between items-center">
-                        <span class="bg-[#355186] text-white text-sm font-medium mr-2 px-10 py-1.5 rounded">Treatment Anti-Aging</span>
-                        <span class="bg-yellow-400 text-black text-sm font-medium mr-2 px-3 py-1.5 rounded">Rp. 700.000,00</span>
-                    </div>
-                    <div class="mt-4">
-                        <p class="font-semibold">Manfaat: <span class="font-normal">Kulit wajah terlihat lebih kencang, elastis, dan bercahaya, garis halus dan kerutan dapat berkurang, serta kulit wajah terlihat lebih muda dan segar.</span></p>
-                        <p class="font-semibold mt-2">Cocok Untuk: <span class="font-normal">Keriput halus, pencegahan penuaaan dini</span></p>
-                    </div>
-                </div>
-
-                <div class="max-w-screen-lg mx-auto bg-white border border-gray-200 rounded-lg shadow-md p-6">
-                    <div class="flex justify-between items-center">
-                        <span class="bg-[#355186] text-white text-sm font-medium mr-2 px-10 py-1.5 rounded">Treatment Acne Care</span>
-                        <span class="bg-yellow-400 text-black text-sm font-medium mr-2 px-3 py-1.5 rounded">Rp. 800.000,00</span>
-                    </div>
-                    <div class="mt-4">
-                        <p class="font-semibold">Manfaat: <span class="font-normal">Kulit wajah menjadi lebih bersih, jerawat dan peradangan kulit dapat berkurang, dan kulit wajah menjadi lebih sehat dan terawat.</span></p>
-                        <p class="font-semibold mt-2">Cocok Untuk: <span class="font-normal">Kulit berjerawat, jerawat meradang, bekas jerawat</span></p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
                 <!-- List Treatment End -->
             </div>
         </div>

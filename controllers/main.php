@@ -5,5 +5,6 @@ include_once 'controllers/BerandaController.php';
 include_once 'controllers/CustController.php';
 include_once 'controllers/DokterController.php';
 include_once 'controllers/StaffController.php';
+include_once 'controllers/AjaxController.php';
 
 // session_start();

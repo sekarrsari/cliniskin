@@ -8,7 +8,17 @@ class CustController {
 
     static function appointment_cust()
     {
-        return view('customer/cust_layout', ['url' => 'appointment/appointment_cust']);
+        $db = new Database();
+        $id = $_SESSION['id'];
+        $sql = <<<SQL
+            SELECT a.tanggal, a.jam, d.nama AS dokter, j.jenis FROM appointment a
+            JOIN jenis_treatment j ON a.id_jenis_treatment = j.id
+            JOIN user d ON a.id_dokter = d.id
+            JOIN user c ON a.id_dokter = c.id
+            WHERE $id = a.id_cust
+        SQL;
+        $appointments = $db->executeNoBind($sql,true);
+        return view('customer/cust_layout', ['url' => 'appointment/appointment_cust','appointments' => $appointments]);
     }
 
     static function create_appointment()

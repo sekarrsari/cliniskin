@@ -22,6 +22,10 @@ class Appointment
     {
         return $this->db->readOne($this->table,[$column,'=',$value]);
     }
+    public function findAll($value,$column = 'id')
+    {
+        return $this->db->readMany($this->table,[$column,'=',$value]);
+    }
     public function all()
     {
         return $this->db->readMany($this->table);

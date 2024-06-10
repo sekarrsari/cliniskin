@@ -90,7 +90,7 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                     </div>
-                    <input type="text" id="table-search"
+                    <input type="text" id="table-search" oninput="doSearch(this)"
                         class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Search">
                 </div>
@@ -149,62 +149,32 @@
                             </th> -->
                     </tr>
                 </thead>
-                <tbody class="font-medium">
-                    <tr class="bg-white border-b hover:bg-gray-50">
-                        <td class="w-4 p-4">
-                            1
-                        </td>
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            01/03/2024
-                        </th>
-                        <td class="px-6 py-4">
-                            08:00
-                        </td>
-                        <td class="px-6 py-4">
-                            Dr. Shandra Jani
-                        </td>
-                        <td class="px-6 py-4">
-                            Anti-Aging
-                        </td>
-                        <!-- <td class="px-6 py-4">
-                                <a href="#"
-                                    class="font-medium text-blue-600 hover:underline">Edit</a>
-                            </td> -->
-                    </tr>
-                    <tr class="bg-white border-b hover:bg-gray-50">
-                        <td class="w-4 p-4">
-                            2
-                        </td>
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            02/03/2024
-                        </th>
-                        <td class="px-6 py-4">
-                            09:00
-                        </td>
-                        <td class="px-6 py-4">
-                            Dr. Eunike Sonbay
-                        </td>
-                        <td class="px-6 py-4">
-                            Radiant Glow
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b hover:bg-gray-50">
-                        <td class="w-4 p-4">
-                            3
-                        </td>
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                            02/03/2024
-                        </th>
-                        <td class="px-6 py-4">
-                            09:00
-                        </td>
-                        <td class="px-6 py-4">
-                            Dr. Eunike Sonbay
-                        </td>
-                        <td class="px-6 py-4">
-                            Radiant Glow
-                        </td>
-                    </tr>
+                <tbody id="tbody-appointment" class="font-medium">
+                    <?php if(count($appointments)): ?>
+                        <?php foreach ($appointments as $key => $appointment): ?>
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td class="w-4 p-4">
+                                <?= $key+1;?>
+                            </td>
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                <?= $appointment['tanggal'];?>
+                            </th>
+                            <td class="px-6 py-4">
+                            <?= $appointment['jam'];?>
+                            </td>
+                            <td class="px-6 py-4">
+                            <?= $appointment['dokter'];?>
+                            </td>
+                            <td class="px-6 py-4">
+                            <?= $appointment['jenis'];?>
+
+                            </td>
+                            <!-- <td class="px-6 py-4">
+                                    <a href="#"
+                                        class="font-medium text-blue-600 hover:underline">Edit</a>
+                                </td> -->
+                        </tr>
+                    <?php endforeach; endif;?>
                 </tbody>
             </table>
         </div>
@@ -213,6 +183,6 @@
     </div>
 
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
+    <script src="../src/appointment_cust.js"></script>
 </div>

@@ -27,6 +27,7 @@ Router::url('beranda-cust/appointment/create', 'get', 'CustController::create_ap
 // Detail Appointment
 Router::url('beranda-staff/appointment/detail', 'get', 'StaffController::detail_appointment');
 Router::url('beranda-dokter/appointment/detail', 'get', 'DokterController::detail_appointment');
+Router::url('beranda-staff/appointment/detail', 'post', 'StaffController::update_appointment');
 
 // Profile
 Router::url('beranda-cust/profile', 'get', 'CustController::profile_cust');
@@ -39,11 +40,13 @@ Router::url('beranda-cust/list-treatment', 'get', 'CustController::list_treatmen
 Router::url('beranda-cust/search-treatment', 'get', 'CustController::search_treatment');
 Router::url('beranda-dokter/list-treatment', 'get', 'DokterController::list_treatment');
 Router::url('beranda-staff/list-treatment', 'get', 'StaffController::list_treatment');
+Router::url('beranda-staff/search-treatment', 'get', 'StaffController::search_treatment');
 // List Dokter
 Router::url('beranda-cust/list-dokter', 'get', 'CustController::list_dokter');
 Router::url('beranda-cust/search-dokter', 'get', 'CustController::search_dokter');
 Router::url('beranda-dokter/list-dokter', 'get', 'DokterController::list_dokter');
 Router::url('beranda-staff/list-dokter', 'get', 'StaffController::list_dokter');
+Router::url('beranda-staff/search-dokter', 'get', 'StaffController::search_dokter');
 
 //Utils
 Router::url('fresh', 'get', 'LandingController::fresh');

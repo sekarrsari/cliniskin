@@ -7,6 +7,21 @@ class AuthController {
     private static $baseurl = '/cliniskin/';
     static function login()
     {
+        if(isset($_COOKIE['remember-cust'])) {
+            $_SESSION['id'] = $_COOKIE['rememberme'];
+            redirect('beranda-cust');
+            die;
+        }
+        if(isset($_COOKIE['remember-dokter'])) {
+            $_SESSION['id'] = $_COOKIE['rememberme'];
+            redirect('beranda-dokter');
+            die;
+        }
+        if(isset($_COOKIE['remember-staff'])) {
+            $_SESSION['id'] = $_COOKIE['rememberme'];
+            redirect('beranda-staff');
+            die;
+        }
         return view('auth/auth_layout', ['url' => 'login']);
     }
 
@@ -16,6 +31,9 @@ class AuthController {
         $result = $model_user->find($_POST['email'],'email');
         if($result && $result['password'] == $_POST['password']){
             $_SESSION['id'] = $result['id'];
+            if(isset($_POST['remember'])) {
+                setcookie('remember-' . $result['role'],$_SESSION['id'],time() + 86400);
+            }
             redirect(self::$baseurl . 'beranda-' . $result['role']);
         }
         redirectWith(self::$baseurl . 'login',json_encode(['message' => 'Username atau password salah']));

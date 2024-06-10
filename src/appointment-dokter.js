@@ -47,6 +47,10 @@ function viewSearch(data) {
         <td class="px-6 py-4">
             ${appointment['jenis']}
         </td>
+        <td class="px-6 py-4">
+            <a href="/cliniskin/beranda-dokter/appointment/detail"
+            class="font-medium text-[#22278B] hover:underline">Detail</a>
+        </td>
         `
         const tr = document.createElement('tr');
         tr.classList.add('bg-white','border-b','hover:bg-gray-50');

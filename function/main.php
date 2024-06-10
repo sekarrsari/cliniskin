@@ -41,7 +41,6 @@ class Router
         if (!in_array($url, self::$urls['routes'])) {
             header('Location: ' . BASEURL);
         }
-
         $call = self::$urls[$_SERVER['REQUEST_METHOD']][$url];
         $call();
     }

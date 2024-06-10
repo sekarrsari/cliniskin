@@ -28,7 +28,7 @@
                                 </div>
                                 <div>
                                     <label for="spesialisasi" class="block text-sm font-medium text-gray-700">Spesialisasi</label>
-                                    <input disabled value="<?=$user['spesialis']?>" type="text" id="spesialisasi" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="Anti-Aging">
+                                    <input disabled value="<?=$user['jenis']?>" type="text" id="spesialisasi" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="Anti-Aging">
                                 </div>
                                 <div>
                                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>

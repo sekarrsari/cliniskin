@@ -27,7 +27,7 @@ class DokterController {
         SELECT a.id, a.status, c.nama as nama, c.no_telp, a.tanggal, a.jam, a.keluhan, d.nama AS dokter, j.jenis FROM appointment a
         JOIN jenis_treatment j ON a.id_jenis_treatment = j.id
         JOIN user d ON a.id_dokter = d.id
-        JOIN user c ON a.id_dokter = c.id
+        JOIN user c ON a.id_cust = c.id
         WHERE a.id = $id
         SQL;
         $appointment = $db->executeNoBind($sql);

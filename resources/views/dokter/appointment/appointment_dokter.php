@@ -159,7 +159,7 @@
                             <?= $appointment['jenis'];?>
 
                             <td class="px-6 py-4">
-                            <a href="<?= urlpath('beranda-dokter/appointment/detail') ?>"
+                            <a href="<?= urlpath('beranda-dokter/appointment/detail?id=' . $appointment['id'])?>"
                             class="font-medium text-[#22278B] hover:underline">Detail</a>
                         </td>
                         </tr>

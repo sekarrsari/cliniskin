@@ -6,9 +6,43 @@
         <div class="relative overflow-x-auto">
             <div class="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-between pb-4">
                 <!-- Create Appointment Start -->
-                <div class="container mx-xl mt-10">
+                <div class="container mx-xl mt-10" style="display: flex; justify-content:center">
                     <div class="bg-white p-8 rounded-lg ">
+                    <div>
+                        <canvas id="myChart"></canvas>
+                        </div>
 
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                        <script>
+                        const ctx = document.getElementById('myChart');
+                        let charts = <?= $charts;?>;
+                        let dokter = charts.map(element => {
+                            return element['nama'];
+                        });
+                        let jumlah = charts.map(element => {
+                            return element['jumlah_appointment'];
+                        });
+
+                        new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                            labels: dokter,
+                            datasets: [{
+                                label: '# of Votes',
+                                data: jumlah,
+                                borderWidth: 1
+                            }]
+                            },
+                            options: {
+                            scales: {
+                                y: {
+                                beginAtZero: true
+                                }
+                            }
+                            }
+                        });
+                        </script>
                     </div>
                 </div>
             </div>

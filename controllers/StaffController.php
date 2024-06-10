@@ -81,6 +81,9 @@ class StaffController {
     }
     static function appointment_chart()
     {
-        return view('staff/staff_layout', ['url' => 'appoint/list_dokter']);
+        $db = new Database();
+        $sql = 'SELECT COUNT(a.id) as jumlah_appointment, u.nama FROM appointment a JOIN user u ON (a.id_dokter = u.id) GROUP BY u.id';
+        $charts = $db->executeNoBind($sql,true);
+        return view('staff/staff_layout', ['url' => 'appointment/appointment_chart', 'charts' => json_encode($charts)]);
     }
 }

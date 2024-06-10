@@ -10,7 +10,7 @@ class DokterController {
     {
         $db = new Database();
         $sql = <<<SQL
-            SELECT a.tanggal, a.jam, d.nama AS dokter, j.jenis FROM appointment a
+            SELECT a.id, a.tanggal, a.jam, d.nama AS dokter, j.jenis FROM appointment a
             JOIN jenis_treatment j ON a.id_jenis_treatment = j.id
             JOIN user d ON a.id_dokter = d.id
             JOIN user c ON a.id_dokter = c.id
@@ -21,12 +21,14 @@ class DokterController {
 
     static function detail_appointment()
     {
+        $id = $_GET['id'];
         $db = new Database();
         $sql = <<<SQL
         SELECT a.id, a.status, c.nama as nama, c.no_telp, a.tanggal, a.jam, a.keluhan, d.nama AS dokter, j.jenis FROM appointment a
         JOIN jenis_treatment j ON a.id_jenis_treatment = j.id
         JOIN user d ON a.id_dokter = d.id
         JOIN user c ON a.id_dokter = c.id
+        WHERE a.id = $id
         SQL;
         $appointment = $db->executeNoBind($sql);
         return view('dokter/dokter_layout', ['url' => 'appointment/detail_appointment','appointment' => $appointment]);

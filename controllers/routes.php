@@ -47,6 +47,7 @@ Router::url('beranda-staff/list-dokter', 'get', 'StaffController::list_dokter');
 Router::url('fresh', 'get', 'LandingController::fresh');
 Router::url('search', 'post', 'AjaxController::search');
 Router::url('search-date', 'post', 'AjaxController::searchDate');
+Router::url('search-keyword', 'post', 'AjaxController::searchTime');
 
 //Logout
 Router::url('logout', 'get', 'AuthController::logout');

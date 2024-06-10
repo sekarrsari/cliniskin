@@ -15,7 +15,7 @@
                             <path
                                 d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z" />
                         </svg>
-                        Last 30 days
+                        <span id="radioLabel">Last 30 days</span>
                         <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                             fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -23,13 +23,14 @@
                         </svg>
                     </button>
                     <!-- Dropdown menu -->
+                     <input type="hidden" name="" id="idRadio" value="<?=$_SESSION['id']?>">
                     <div id="dropdownRadio" class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow"
                         data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top"
                         style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(522.5px, 3847.5px, 0px);">
                         <ul class="p-3 space-y-1 text-sm text-gray-700" aria-labelledby="dropdownRadioButton">
                             <li>
                                 <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                    <input id="filter-radio-example-1" type="radio" value="" name="filter-radio"
+                                    <input id="filter-radio-example-1" data-id="last-day" type="radio" value="" name="filter-radio"
                                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
                                     <label for="filter-radio-example-1"
                                         class="w-full ms-2 text-sm font-medium text-gray-900 rounded">Last
@@ -38,7 +39,7 @@
                             </li>
                             <li>
                                 <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                    <input checked="" id="filter-radio-example-2" type="radio" value=""
+                                    <input checked="" data-id="7" id="filter-radio-example-2" type="radio" value=""
                                         name="filter-radio"
                                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
                                     <label for="filter-radio-example-2"
@@ -48,7 +49,7 @@
                             </li>
                             <li>
                                 <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                    <input id="filter-radio-example-3" type="radio" value="" name="filter-radio"
+                                    <input id="filter-radio-example-3" data-id="30" type="radio" value="" name="filter-radio"
                                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
                                     <label for="filter-radio-example-3"
                                         class="w-full ms-2 text-sm font-medium text-gray-900 rounded">Last
@@ -57,7 +58,7 @@
                             </li>
                             <li>
                                 <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                    <input id="filter-radio-example-4" type="radio" value="" name="filter-radio"
+                                    <input id="filter-radio-example-4" data-id="last-month" type="radio" value="" name="filter-radio"
                                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
                                     <label for="filter-radio-example-4"
                                         class="w-full ms-2 text-sm font-medium text-gray-900 rounded">Last
@@ -66,7 +67,7 @@
                             </li>
                             <li>
                                 <div class="flex items-center p-2 rounded hover:bg-gray-100">
-                                    <input id="filter-radio-example-5" type="radio" value="" name="filter-radio"
+                                    <input id="filter-radio-example-5" data-id="last-year" type="radio" value="" name="filter-radio"
                                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
                                     <label for="filter-radio-example-5"
                                         class="w-full ms-2 text-sm font-medium text-gray-900 rounded">Last
@@ -184,5 +185,5 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
-    <script src="../src/appointment_cust.js"></script>
+    <script src="../src/appointment.js"></script>
 </div>

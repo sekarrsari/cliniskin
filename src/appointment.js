@@ -14,6 +14,14 @@ function fetchSearchDate(letters) {
       .then(res => viewSearch(res))
       .catch(e => console.error('Error'+e));
 }
+function fetchSearchTime(keyword,id) {
+    fetch('/cliniskin/search-keyword', {
+        method: 'POST',
+        body: new URLSearchParams('keyword='+keyword+'&id='+id)
+    }).then(res => res.json())
+      .then(res => viewSearch(res))
+      .catch(e => console.error('Error'+e));
+}
 
 function viewSearch(data) {
     const tbody = document.getElementById('tbody-appointment');
@@ -50,13 +58,19 @@ function doSearch(input) {
     let value = input.value;
     fetchSearch(value);
     }
-function doSearchDate(element) {
+function doSearchDate() {
     const input = document.querySelector('#date-search');
     fetchSearchDate(input.value);
 }
 
-document.querySelectorAll('.datepicker-cell').forEach(cell => {
-    cell.addEventListener('focus',function(e) {
-        console.log(e)
+document.querySelectorAll('#dropdownRadio ul li').forEach(element => {
+    element.addEventListener('click',(e) => {
+        if(e.target.tagName == 'INPUT') {
+            let id = document.querySelector('#idRadio').value;
+            fetchSearchTime(e.target.dataset.id,id);
+            }
+        if(e.target.tagName == 'LABEL') {
+            document.querySelector('#radioLabel').innerText = e.target.innerText;
+        }
     });
 });

@@ -51,6 +51,7 @@ class AuthController {
             'email' => $_POST['email'],
             'alamat' => $_POST['alamat'],
             'password' => $_POST['password'],
+            'role' => 'cust',
         ]);
         if($result) {
             redirect(self::$baseurl . 'login');

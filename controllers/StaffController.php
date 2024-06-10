@@ -79,4 +79,8 @@ class StaffController {
         }
         redirectWith(self::$baseurl . 'beranda-staff/appointment/detail',json_encode(['message' => 'Appointment gagal']));
     }
+    static function appointment_chart()
+    {
+        return view('staff/staff_layout', ['url' => 'appoint/list_dokter']);
+    }
 }

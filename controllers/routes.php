@@ -21,6 +21,7 @@ Router::url('beranda-cust/appointment', 'get', 'CustController::appointment_cust
 Router::url('create-appointment', 'post', 'CustController::doCreateAppointment');
 Router::url('beranda-dokter/appointment', 'get', 'DokterController::appointment_dokter');
 Router::url('beranda-staff/appointment', 'get', 'StaffController::appointment_staff');
+Router::url('beranda-staff/appointment/chart', 'get', 'StaffController::appointment_chart');
 
 // Create Appointment
 Router::url('beranda-cust/appointment/create', 'get', 'CustController::create_appointment');

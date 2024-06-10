@@ -115,6 +115,11 @@
                 </div>
                 <!-- Select Date end -->
 
+                <a href="<?= urlpath('beranda-staff/appointment/chart') ?>" type="button"
+                    class="text-white bg-[#355186] hover:bg-[#2c4470] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2">
+                    Lihat Grafik
+                </a>
+
             </div>
 
             <!-- Table start -->

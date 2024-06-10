@@ -78,7 +78,19 @@ class CustController {
 
     static function list_dokter()
     {
-        return view('customer/cust_layout', ['url' => 'services/list_dokter']);
+        $db = new Database();
+        $sql = "SELECT u.*,j.* FROM user u JOIN jenis_treatment j ON u.spesialis = j.id WHERE role = 'dokter'";
+        $dokters = $db->executeNoBind($sql,true);
+        // var_dump($dokters);die;
+        return view('customer/cust_layout', ['url' => 'services/list_dokter','dokters' => $dokters]);
+    }
+    static function search_dokter()
+    {
+        $letters = $_GET['letters'];
+        $db = new Database();
+        $sql = "SELECT u.*,j.* FROM user u JOIN jenis_treatment j ON u.spesialis = j.id WHERE LOWER(nama) LIKE LOWER('%$letters%') AND role = 'dokter'";
+        $dokters = $db->executeNoBind($sql,true);
+        return view('customer/cust_layout', ['url' => 'services/list_dokter', 'dokters' => $dokters]);
     }
 
 }

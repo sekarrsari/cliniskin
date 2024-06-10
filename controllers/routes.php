@@ -41,6 +41,7 @@ Router::url('beranda-dokter/list-treatment', 'get', 'DokterController::list_trea
 Router::url('beranda-staff/list-treatment', 'get', 'StaffController::list_treatment');
 // List Dokter
 Router::url('beranda-cust/list-dokter', 'get', 'CustController::list_dokter');
+Router::url('beranda-cust/search-dokter', 'get', 'CustController::search_dokter');
 Router::url('beranda-dokter/list-dokter', 'get', 'DokterController::list_dokter');
 Router::url('beranda-staff/list-dokter', 'get', 'StaffController::list_dokter');
 

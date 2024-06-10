@@ -7,10 +7,10 @@
             <div class="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center pb-4">
 
                 <!-- Search Bar Start -->
-                <form class="w-full max-w-2xl">
+                <form action="/cliniskin/beranda-cust/search-dokter" class="w-full max-w-2xl">
                     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
                     <div class="relative">
-                        <input type="search" id="default-search"
+                        <input type="search" id="default-search" name="letters"
                             class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Cari Dokter Kecantikan..." required />
                         <button type="submit"
@@ -24,7 +24,7 @@
             <div class="w-full max-w-screen-lg p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
                 <div class="flow-root">
                     <ul role="list" class="divide-y divide-gray-200">
-
+                        <?php foreach($dokters as $dokter): ?>
                         <li class="py-3 sm:py-4 my-2">
                             <div class="flex items-center space-x-4">
                                 <div class="flex-shrink-0">
@@ -34,21 +34,20 @@
                                     <div class="flex items-center justify-between">
                                         <div>
                                             <p class="text-lg font-semibold text-gray-900 truncate">
-                                                dr. Eunike Sonbay
+                                                dr. <?= $dokter['nama'];?>
                                             </p>
                                         </div>
                                         <div class="text-right">
-                                            <p class="text-sm font-medium text-gray-900">Dokter Kecantikan - Radiant
-                                                Glow
+                                            <p class="text-sm font-medium text-gray-900">Dokter Kecantikan - <?= $dokter['jenis'];?>
                                             </p>
                                         </div>
                                     </div>
                                     <div class="mt-1">
                                         <p class="text-sm text-gray-500 truncate">
-                                            081122653398
+                                            <?= $dokter['no_telp'];?>
                                         </p>
                                         <p class="text-sm text-gray-500 truncate">
-                                            Jl. Kalimantan No. 7, Sumbersari, Jember, Jawa Timur, 16028
+                                            <?= $dokter['alamat'];?>
                                         </p>
                                     </div>
                                     <div class="mt-2 bg-[#E5E6E8] text-xs font-medium px-3 py-1.5 rounded inline-block">
@@ -58,71 +57,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="py-3 sm:py-4 my-2">
-                            <div class="flex items-center space-x-4">
-                                <div class="flex-shrink-0">
-                                    <img class="w-16 h-16 rounded-full" src="<?= urlpath('asset/img/list-dokter/listdoct.png') ?>" alt="Doctor Image">
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <p class="text-lg font-semibold text-gray-900 truncate">
-                                                dr. Shandra Jani
-                                            </p>
-                                        </div>
-                                        <div class="text-right">
-                                            <p class="text-sm font-medium text-gray-900">Dokter Kecantikan - Anti-Aging
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="mt-1">
-                                        <p class="text-sm text-gray-500 truncate">
-                                            085978789879
-                                        </p>
-                                        <p class="text-sm text-gray-500 truncate">
-                                            Jl. Sumatra No. 9, Sumbersari, Jember, Jawa Timur, 16012
-                                        </p>
-                                    </div>
-                                    <div class="mt-2 bg-[#E5E6E8] text-xs font-medium px-3 py-1.5 rounded inline-block">
-                                        <span class="font-bold text-[#355186]">9 Pasien</span>
-                                        <span class="text-[#355186]">telah membuat janji dengan dokter ini</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="py-3 sm:py-4 my-2">
-                            <div class="flex items-center space-x-4">
-                                <div class="flex-shrink-0">
-                                    <img class="w-16 h-16 rounded-full" src="<?= urlpath('asset/img/list-dokter/listdoct.png') ?>" alt="Doctor Image">
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <p class="text-lg font-semibold text-gray-900 truncate">
-                                                dr. Cantika Cipta
-                                            </p>
-                                        </div>
-                                        <div class="text-right">
-                                            <p class="text-sm font-medium text-gray-900">Dokter Kecantikan - Acne Care
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="mt-1">
-                                        <p class="text-sm text-gray-500 truncate">
-                                            085978789899
-                                        </p>
-                                        <p class="text-sm text-gray-500 truncate">
-                                            Jl. Sumatra No. 9, Sumbersari, Jember, Jawa Timur, 16012
-                                        </p>
-                                    </div>
-                                    <div class="mt-2 bg-[#E5E6E8] text-xs font-medium px-3 py-1.5 rounded inline-block">
-                                        <span class="font-bold text-[#355186]">9 Pasien</span>
-                                        <span class="text-[#355186]">telah membuat janji dengan dokter ini</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>

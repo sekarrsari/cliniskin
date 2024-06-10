@@ -1,15 +1,15 @@
-function fetchSearch(letters) {
+function fetchSearch(letters,id) {
     fetch('/cliniskin/search', {
         method: 'POST',
-        body: new URLSearchParams('letters='+letters)
+        body: new URLSearchParams('letters='+letters+'&id='+id)
     }).then(res => res.json())
       .then(res => viewSearch(res))
       .catch(e => console.error('Error'+e));
 }
-function fetchSearchDate(letters) {
+function fetchSearchDate(letters,id) {
     fetch('/cliniskin/search-date', {
         method: 'POST',
-        body: new URLSearchParams('letters='+letters)
+        body: new URLSearchParams('letters='+letters+'&id='+id)
     }).then(res => res.json())
       .then(res => viewSearch(res))
       .catch(e => console.error('Error'+e));
